@@ -1,0 +1,28 @@
+<header class="navbar navbar-default">
+  <div class="container">
+    <nav>
+      <div class="navbar-header">
+        <%= link_to image_tag("goodreads-logo.svg"), root_path, id: "logo" %>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Notifications' %></li>
+        <li><%= link_to 'Mail'%></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile" %></li>
+            <li><%= link_to "Settings"%></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <script>
+
+  </script>
+</header>

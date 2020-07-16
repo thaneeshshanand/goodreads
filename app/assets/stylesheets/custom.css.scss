@@ -1,0 +1,20 @@
+/* universal */
+
+
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  h5 {float: left;}
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+}
