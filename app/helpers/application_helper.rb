@@ -10,4 +10,12 @@ module ApplicationHelper
     end
   end
 
+  def error_message(object, field)
+    if object.errors.nil?
+      field.capitalize
+    else
+      "#{field.capitalize} #{object.errors.messages[field].first}"
+    end
+  end
+
 end

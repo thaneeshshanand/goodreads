@@ -1,0 +1,22 @@
+<div class="login-form">
+  <%= form_for(:session, url: login_path) do |f| %>
+    <div class="row">
+      <div class="form-upper">
+        <%= f.email_field :email, class: '', placeholder: error_message(@user, :email) %>
+      </div>
+      <div class="form-upper">
+        <%= f.password_field :password, class: '', placeholder: error_message(@user, :password) %>
+      </div>
+
+      <div class="form-upper">
+        <%= f.submit "Sign in" , class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="row signin-lower">
+      <div>
+        <%= f.check_box :remember_me %>
+        <span>Remember me</span>
+      </div>
+    </div>
+  <% end %>
+</div>
