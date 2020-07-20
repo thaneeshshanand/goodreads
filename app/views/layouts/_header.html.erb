@@ -8,6 +8,19 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
         <li><%= link_to "People", users_path if logged_in? %></li>
+        <li><%= link_to "Books", books_path if logged_in? %></li>
+        <% if logged_in? %>
+          <li>
+            <%= form_tag(books_path, method: "get", class: 'navbar-form navbar-left') do %>
+              <div class="input-group">
+                <%= search_field_tag :search, params[:search], placeholder: "Search books", class: "form-control" %>
+                <div class="input-group-btn">
+                  <%= button_tag "", class: 'btn btn-info glyphicon glyphicon-search', name: nil %>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
       <% if logged_in? %>
         <%= render 'shared/header_logged_in' %>

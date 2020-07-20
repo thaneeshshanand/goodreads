@@ -140,3 +140,21 @@ footer {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* ----------------------------------------------------------- */
+/* BOOKS */
+/* ----------------------------------------------------------- */
+
+.book_cover {
+  max-width: 100px;
+  height: auto;
+  background-color: grey;
+}
+
+.book-div {
+  padding-top: 40px
+}
+
+.book-desc {
+  padding-top: 150px;
+}

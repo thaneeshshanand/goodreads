@@ -1,8 +1,10 @@
-<li>
-  <%= image_tag user.gravatar_url, :class => "gravatar" %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
-</li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 user-info">
+      <h3>
+        <%= image_tag user.gravatar_url, :class => "gravatar" %>
+        <%= user.name %>
+      </h3>
+    </div>
+  </div>
+</div>

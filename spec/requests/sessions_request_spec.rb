@@ -12,7 +12,7 @@ describe "Session Requests", type: :request do
                                          password: "foobar" } }
       expect(response).to redirect_to(assigns(:user))
       expect(is_logged_in?).to be true
-      delete "/logout"
+      delete "/logout", params: {}
       expect(response).to redirect_to(root_path)
       expect(is_logged_in?).to be false
     end

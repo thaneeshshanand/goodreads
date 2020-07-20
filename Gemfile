@@ -15,6 +15,7 @@ gem 'gravtastic', '3.2.6'
 gem 'rails-controller-testing', '1.0.5'
 gem 'assert_difference', '1.0.0'
 gem 'ffaker', '2.11.0'
+gem 'ionicons-rails', '2.0.0'
 
 # paginator
 gem 'kaminari', '1.2.1'

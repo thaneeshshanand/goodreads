@@ -1,0 +1,8 @@
+<li id="book-<%= book.id %>">
+  <%= image_tag book.cover_pic, class: "book_cover" %>
+  <%= link_to book.name, book %>
+  <% for i in 1..book.rating %>
+    <i class="icon ion-star"></i>
+  <% end %>
+  <p>Description: <%= book.description %></p>
+</li>

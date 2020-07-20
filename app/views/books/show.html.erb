@@ -1,0 +1,19 @@
+<% provide(:title, @book.name) %>
+<div class="container book-div">
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag @book.cover_pic, class: "book_cover" %>
+    </div>
+    <div class="col-md-10">
+      <h3><%= @book.name %></h3><br>
+      <h4>by <%= @book.author.name %></h4>
+      <% for i in 1..@book.rating %>
+        <i class="icon ion-star"></i>
+      <% end %>
+    </div>
+    <div>
+  </div>
+  <div class="row book-desc">
+    <h5>Description: <%= @book.description %></h5>
+  </div>
+</div>

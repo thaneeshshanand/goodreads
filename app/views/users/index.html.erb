@@ -4,7 +4,14 @@
   <%= paginate @users %>
     <ul class="users">
       <% @users.each do |user| %>
-        <%= render user %>
+        <li>
+          <%= image_tag user.gravatar_url, :class => "gravatar" %>
+          <%= link_to user.name, user %>
+          <% if current_user.admin? && !current_user?(user) %>
+            | <%= link_to "delete", user, method: :delete,
+                                          data: { confirm: "You sure?" } %>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   <%= paginate @users %>

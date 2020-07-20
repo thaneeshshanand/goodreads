@@ -1,0 +1,1 @@
+SELECT  "books".* FROM "books" WHERE (lower(name) LIKE 'cat') ORDER BY "books"."name" ASC LIMIT ? OFFSET ? 
