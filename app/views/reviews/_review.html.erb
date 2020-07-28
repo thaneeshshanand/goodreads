@@ -1,0 +1,14 @@
+<li class="reviews" id="review-<%= review.id %>">
+  <div class="row">
+    <div class="col-sm-1 review-image">
+      <%= image_tag review.user.gravatar_url, :class => "gravatar" %>
+    </div>
+    <div class="col-sm-11">
+      <%= link_to review.user.name, review.user %>
+      <% for i in 1..review.rating %>
+        <i class="icon ion-star"></i>
+      <% end %>
+      <p><%= review.content %></p>
+    </div>
+  </div>
+</li>

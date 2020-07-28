@@ -1,0 +1,10 @@
+<% provide(:title, 'Wishlist') %>
+<div class="container">
+  <h1>Wish List</h1>
+  <ul class="users">
+    <% @books.each do |book| %>
+      <%= render book %>
+      <%= button_to "Remove from Wishlist", unwish_book_path(book), method: :delete, class: "unwish_btn"%>
+    <% end %>
+  </ul>
+</div>

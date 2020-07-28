@@ -17,7 +17,8 @@ gem 'assert_difference', '1.0.0'
 gem 'ffaker', '2.11.0'
 gem 'ionicons-rails', '2.0.0'
 
-# paginator
+# paginator & filter
+gem 'will_filter', '3.1.11'
 gem 'kaminari', '1.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '1.3.13'

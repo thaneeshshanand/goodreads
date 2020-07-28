@@ -16,6 +16,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @reviews = @book.reviews.order(created_at: :desc).page params[:page]
   end
   
   def edit
@@ -25,6 +26,18 @@ class BooksController < ApplicationController
   end
 
   def destroy
+  end
+
+  def wish
+    book = Book.find(params[:id])
+    Wishlist.create(user: current_user, book: book)
+    redirect_to request.referrer
+  end
+
+  def unwish
+    book = Book.find(params[:id])
+    Wishlist.find_by(user: current_user, book: book).destroy
+    redirect_to request.referrer
   end
 
   private

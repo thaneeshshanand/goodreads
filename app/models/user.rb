@@ -4,6 +4,7 @@ class User < ApplicationRecord
   gravtastic
 
   attr_accessor :remember_token
+  has_many :books, class_name: "Wishlist", foreign_key: "user_id", dependent: :destroy
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }

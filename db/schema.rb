@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200720043958) do
+ActiveRecord::Schema.define(version: 20200726182919) do
 
   create_table "authors", force: :cascade do |t|
     t.text     "name"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20200720043958) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_reviews_on_user_id_and_book_id", unique: true
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -42,6 +54,15 @@ ActiveRecord::Schema.define(version: 20200720043958) do
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_wishlists_on_book_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
 end

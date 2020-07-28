@@ -4,16 +4,27 @@
     <div class="col-md-2">
       <%= image_tag @book.cover_pic, class: "book_cover" %>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10 book-details">
       <h3><%= @book.name %></h3><br>
       <h4>by <%= @book.author.name %></h4>
       <% for i in 1..@book.rating %>
         <i class="icon ion-star"></i>
+      <% end %>
+      <% if is_wished(@book.id)%>
+        <%= button_to "Add to Wishlist", wish_book_path(@book), method: :post%>
+      <% else %>
+        <%= button_to "Remove from Wishlist", unwish_book_path(@book), method: :delete%>
       <% end %>
     </div>
     <div>
   </div>
   <div class="row book-desc">
     <h5>Description: <%= @book.description %></h5>
+  </div>
+  <div class="row">
+    <h4>Community Reviews</h5>
+    <%= button_to "Write a review", new_book_review_path(@book), method: :get %>
+    <%= render @reviews %>
+    <%= paginate @reviews %>
   </div>
 </div>

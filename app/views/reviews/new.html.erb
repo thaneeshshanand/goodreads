@@ -1,0 +1,33 @@
+<% provide(:title, 'New Review') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%= @book.name %> > Review</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 book_cover_div">
+      <%= image_tag @book.cover_pic, class: "book_cover" %>
+    </div>
+    <div class="col-md-10">
+      <h3><%= @book.name %></h3>
+      <h4>by <%= @book.author.name %><h4>
+    </div>
+  </div>
+  <div class="row review_form">
+    <div class="col-md-12">
+      <%= form_for @review, url: book_reviews_path(@book) do |f| %>
+        <%= f.label :rating, 'My rating:', class: "review_label" %>
+        <% for i in (1..5) %>
+          <label>
+            <%= f.radio_button :rating, i %>
+            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          </label>
+        <% end %>
+        <br>
+        <%= f.text_area :content, placeholder: "Enter your review...", class: "review-textarea" %>
+        <%= f.submit "Post", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

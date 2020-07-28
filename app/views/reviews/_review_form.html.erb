@@ -1,0 +1,7 @@
+<%= form_for @review do |f| %>
+  <%= f.label :rating, 'My rating' %>
+  <%= f.text_field :rating, class: 'form-control' %>
+  <%= f.label :content, 'What do you think?' %>
+  <%= f.text_area :content, placeholder: "Enter your review..." %>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

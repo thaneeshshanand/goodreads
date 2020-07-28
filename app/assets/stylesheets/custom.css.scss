@@ -158,3 +158,68 @@ footer {
 .book-desc {
   padding-top: 150px;
 }
+
+/* ----------------------------------------------------------- */
+/* REVIEWS */
+/* ----------------------------------------------------------- */
+
+.reviews {
+  list-style: none;
+  margin: 0;
+  padding-top: 30px;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.review-image {
+  padding: 0px 40px 20px 0px;
+}
+
+.review_form {
+  padding-top: 40px;
+}
+
+.review_label {
+  padding-right: 30px;
+}
+
+.new_review {
+  input[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    padding-bottom: 30px;
+  }
+  .glyphicon {
+    font-size: 20px;
+  }
+  [type=radio] + span {
+    cursor: pointer;
+  }
+  [type=radio]:checked + span {
+    outline: 2px solid #f00;
+  }
+}
+
+.review-textarea {
+  width: 700px;
+  height: 300px;
+}
+
+.book_cover_div {
+  padding-right: 40px;
+}
+
+.book-details {
+  padding-bottom: 30px;
+}
+
+.unwish_btn {
+  position: relative;
+  right: -400px;
+  top: -100px;
+}

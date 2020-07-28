@@ -9,6 +9,7 @@
         <li><%= link_to "Help", help_path %></li>
         <li><%= link_to "People", users_path if logged_in? %></li>
         <li><%= link_to "Books", books_path if logged_in? %></li>
+        <li><%= link_to 'Wishlist', wishlists_path %></li>
         <% if logged_in? %>
           <li>
             <%= form_tag(books_path, method: "get", class: 'navbar-form navbar-left') do %>

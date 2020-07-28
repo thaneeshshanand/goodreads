@@ -1,1 +1,9 @@
-SELECT  "books".* FROM "books" WHERE (lower(name) LIKE 'cat') ORDER BY "books"."name" ASC LIMIT ? OFFSET ? 
+https://via.placeholder.com/210x300/fffff/6c7a96.png?text=Hello
+
+      <%= f.label :rating, 'My rating' %>
+      <% for i in (1..5) %>
+        <label>
+          <%= f.radio_button :rating, i %>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        </label>
+      <% end %><br>
