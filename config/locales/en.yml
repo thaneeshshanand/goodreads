@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+  book_mailer:
+    book_rating:
+      subject: "Rating Subject"

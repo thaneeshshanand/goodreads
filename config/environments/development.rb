@@ -12,24 +12,46 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
+  # config.action_controller.perform_caching = true
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
-    config.action_controller.perform_caching = true
+  # config.cache_store = :redis_cache_store, {
+  #   expires_in: 1.hour,
+  #   namespace: 'cache',
+  #   redis: { host: 'localhost', port: 6379, db: 0}
+  # }
+  # if Rails.root.join('tmp/caching-dev.txt').exist?
+  #   config.action_controller.perform_caching = true
 
-    config.cache_store = :memory_store
-    config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
-    }
-  else
-    config.action_controller.perform_caching = false
+  #   config.cache_store = :memory_store
+  #   config.public_file_server.headers = {
+  #     'Cache-Control' => 'public, max-age=172800'
+  #   }
+  # else
+  #   config.action_controller.perform_caching = false
 
-    config.cache_store = :null_store
-  end
+  #   config.cache_store = :null_store
+  # end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.perform_caching = false
+  # config.action_mailer.delivery_method = :test
+  # host = 'localhost:3000'
+  # config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
-  config.action_mailer.perform_caching = false
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         'smtp.gmail.com',
+    port:            587,
+    domain:          'gmail.com',
+    authentication:  'plain',
+    user_name:       ENV["smtp_username"],
+    password:        ENV["smtp_password"],
+    enable_starttls_auto: true
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -51,4 +73,6 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

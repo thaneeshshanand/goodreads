@@ -1,6 +1,6 @@
 <% provide(:title, 'Wishlist') %>
 <div class="container">
-  <h1>Wish List</h1>
+  <h1>Wish List - <%= wish_count %> books</h1>
   <ul class="users">
     <% @books.each do |book| %>
       <%= render book %>

@@ -13,10 +13,8 @@ class ReviewsController < ApplicationController
                             rating: params[:review][:rating],
                             content: params[:review][:content])
 
-    # Book.reviews.create
-    reviews = Review.where(book_id: @book.id)
-    rating_avg = (reviews.inject(0) { |sum, review| sum + review.rating }) / reviews.count
-    @book.update(rating: rating_avg)
+    RatingsAverageJob.perform_later(@book)
+    RatingsMailJob.perform_later(@book, @review)
     redirect_to @book
   end
 
