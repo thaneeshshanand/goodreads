@@ -23,6 +23,7 @@ gem 'redis-rails', '5.0.2'
 gem 'paperclip', '5.2.0'
 
 # paginator & filter
+gem 'will_filter', git: 'git@github.com:PratheepV/will_filter.git'
 gem 'kaminari', '1.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '1.3.13'

@@ -7,7 +7,6 @@ module WishlistsHelper
   def wish_count
     prefix = "wish_count2_"
     cache_method_1("#{prefix}#{current_user.id}")
-
   end
 
   def cache_method_1(key)

@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:PratheepV/will_filter.git
+  revision: 55d83513099aac7b42cf8d6170aeb846f8bc83e7
+  specs:
+    will_filter (4.0.1)
+      kaminari
+      rails (>= 3.2.3)
+      sass
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -289,6 +298,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (= 4.2.0)
   web-console (= 3.7.0)
+  will_filter!
 
 BUNDLED WITH
    1.17.3

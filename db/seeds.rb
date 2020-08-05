@@ -7,7 +7,7 @@ User.create!(name:  "Thaneesh Shanand",
 99.times do |n|
   password = "password"
   User.create!(name: FFaker::Name.name,
-               email: FFaker::Internet.free_email,
+               email: "dummyuser+",
                password: password,
                password_confirmation: password)
 end

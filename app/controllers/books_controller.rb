@@ -6,10 +6,13 @@ class BooksController < ApplicationController
     if params[:search].blank?
       @books = Book.order(:name).page params[:page]
     else
-      @parameter = params[:search].downcase
-      @books = Book.order(:name).where("lower(name) LIKE :search", search: "%#{@parameter}%").page
+      @books = Book.filter(params: params.permit!, filter: BookFilter).page params[:page]
     end
   end
+
+  # /simple/users?utf8=✓&wf_id=&wf_type=WillFilter::Filter&wf_dirty=false&wf_submitted=true&
+  # wf_name=&wf_model=User&wf_export_format=&wf_export_fields=&wf_key=&wf_match=all&
+  # wf_order=sex&wf_order_type=desc&wf_per_page=100
 
   def create
   end

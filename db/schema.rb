@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200726182919) do
+ActiveRecord::Schema.define(version: 20200804144518) do
 
   create_table "authors", force: :cascade do |t|
     t.text     "name"
@@ -54,6 +54,18 @@ ActiveRecord::Schema.define(version: 20200726182919) do
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "will_filter_filters", force: :cascade do |t|
+    t.string   "type"
+    t.string   "name"
+    t.text     "data"
+    t.integer  "user_id"
+    t.string   "model_class_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["user_id"], name: "index_will_filter_filters_on_user_id"
+    t.index [nil], name: "index_will_filter_filters_on_project_id"
   end
 
   create_table "wishlists", force: :cascade do |t|
